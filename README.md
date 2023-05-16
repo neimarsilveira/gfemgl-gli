@@ -12,4 +12,4 @@ All the files starting with 'Abaqus_...' are used to integrate the code with Aba
 
 simulation1.py, simulation2.py and simulation3.py are examples of how the coupler can be used.
 
-Finally, 'Model files' folder contains the models used for the validation of the code.
+Finally, 'Examples' folder contains the models used for the validation of the code.
