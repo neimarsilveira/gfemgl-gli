@@ -1,0 +1,1082 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<Insane xmlns="http://www.dees.ufmg.br" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dees.ufmg.br insane.xsd">
+  <Solution class="GlobalLocal">
+    <GlobalEnrichedNodes>7 8 9 10 11 12 22 23 24 31 32 33 40 41 42 49 50 51 58 59 60</GlobalEnrichedNodes>
+    <LocalEnricherList>-1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1</LocalEnricherList>
+    <LocalPath>-1</LocalPath>
+    <GlobalSolverType>4</GlobalSolverType>
+    <LocalSolverType>4</LocalSolverType>
+    <GlobalLocalSolverType>4</GlobalLocalSolverType>
+    <GlobalLocalIterations>2</GlobalLocalIterations>
+    <!-- <Approach>Standard</Approach> -->
+  </Solution>
+  <Model class="GFemModel">
+    <ProblemDriver>GFemParametric</ProblemDriver>
+    <GlobalAnalysisModel>GFemPlaneStress</GlobalAnalysisModel>
+    <MaterialList>
+      <Material class="LinearElasticIsotropic" label="Material">
+        <Elasticity>2.0E11</Elasticity>
+        <Poisson>0.3</Poisson>
+      </Material>
+    </MaterialList>
+    <DegenerationList>
+      <Degeneration class="PrescribedDegeneration" label="Section">
+        <CSMaterial>Material</CSMaterial>
+        <Thickness>1.0000000</Thickness>
+      </Degeneration>
+    </DegenerationList>
+    <EnrichmentList>
+      <Enrichment class="PolynomialEnrichment" label="E1-PolynomialEnrichment">
+        <X>1 0</X>
+        <Y>0 1</Y>
+        <Z>0 0</Z>
+      </Enrichment>
+    </EnrichmentList>
+    <NodeList>
+      <Node label="1001">
+        <Coord>30.000000 0.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>true true</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="2">
+        <Coord>35.000000 0.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="3">
+        <Coord>35.000000 5.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="1004">
+        <Coord>30.000000 5.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>true true</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="5">
+        <Coord>40.000000 0.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="6">
+        <Coord>40.000000 5.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="7">
+        <Coord>45.000000 0.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00 0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00 0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="8">
+        <Coord>45.000000 5.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00 0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00 0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="9">
+        <Coord>50.000000 0.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00 0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00 0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="10">
+        <Coord>50.000000 5.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00 0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00 0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="11">
+        <Coord>55.000000 0.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00 0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00 0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="12">
+        <Coord>55.000000 5.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00 0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00 0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="13">
+        <Coord>60.000000 0.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="14">
+        <Coord>60.000000 5.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="15">
+        <Coord>65.000000 0.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="16">
+        <Coord>65.000000 5.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="1017">
+        <Coord>70.000000 0.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>true true</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="1018">
+        <Coord>70.000000 5.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>true true</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="19">
+        <Coord>35.000000 10.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="1020">
+        <Coord>30.000000 10.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>true true</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="21">
+        <Coord>40.000000 10.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="22">
+        <Coord>45.000000 10.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00 0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00 0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="23">
+        <Coord>50.000000 10.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00 0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00 0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="24">
+        <Coord>55.000000 10.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00 0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00 0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="25">
+        <Coord>60.000000 10.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="26">
+        <Coord>65.000000 10.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="1027">
+        <Coord>70.000000 10.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>true true</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="28">
+        <Coord>35.000000 15.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="1029">
+        <Coord>30.000000 15.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>true true</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="30">
+        <Coord>40.000000 15.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="31">
+        <Coord>45.000000 15.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00 0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00 0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="32">
+        <Coord>50.000000 15.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00 0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00 0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="33">
+        <Coord>55.000000 15.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00 0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00 0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="34">
+        <Coord>60.000000 15.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="35">
+        <Coord>65.000000 15.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="1036">
+        <Coord>70.000000 15.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>true true</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="37">
+        <Coord>35.000000 20.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="1038">
+        <Coord>30.000000 20.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>true true</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="39">
+        <Coord>40.000000 20.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="40">
+        <Coord>45.000000 20.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00 0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00 0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="41">
+        <Coord>50.000000 20.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00 0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00 0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="42">
+        <Coord>55.000000 20.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00 0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00 0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="43">
+        <Coord>60.000000 20.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="44">
+        <Coord>65.000000 20.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="1045">
+        <Coord>70.000000 20.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>true true</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="46">
+        <Coord>35.000000 25.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="1047">
+        <Coord>30.000000 25.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>true true</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="48">
+        <Coord>40.000000 25.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="49">
+        <Coord>45.000000 25.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00 0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00 0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="50">
+        <Coord>50.000000 25.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00 0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00 0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="51">
+        <Coord>55.000000 25.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00 0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00 0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="52">
+        <Coord>60.000000 25.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="53">
+        <Coord>65.000000 25.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="1054">
+        <Coord>70.000000 25.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>true true</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="55">
+        <Coord>35.000000 30.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="1056">
+        <Coord>30.000000 30.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>true true</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="57">
+        <Coord>40.000000 30.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="58">
+        <Coord>45.000000 30.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00 0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00 0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="59">
+        <Coord>50.000000 30.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00 0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00 0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="60">
+        <Coord>55.000000 30.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00 0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00 0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="61">
+        <Coord>60.000000 30.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="62">
+        <Coord>65.000000 30.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1</ScalingFactor>
+        </NodeValues>
+      </Node>
+      <Node label="1063">
+        <Coord>70.000000 30.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>true true</Restraints>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+          <EnrichmentType/>
+          <ScalingFactor>1.0000000000000000E00</ScalingFactor>
+        </NodeValues>
+      </Node>
+    </NodeList>
+    <ElementList>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E1">
+        <Incidence>1001 2 3 1004</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E2">
+        <Incidence>2 5 6 3</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E3">
+        <Incidence>5 7 8 6</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E4">
+        <Incidence>7 9 10 8</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E5">
+        <Incidence>9 11 12 10</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E6">
+        <Incidence>11 13 14 12</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E7">
+        <Incidence>13 15 16 14</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E8">
+        <Incidence>15 1017 1018 16</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E9">
+        <Incidence>3 19 1020 1004</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E10">
+        <Incidence>6 21 19 3</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E11">
+        <Incidence>8 22 21 6</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E12">
+        <Incidence>10 23 22 8</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E13">
+        <Incidence>12 24 23 10</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E14">
+        <Incidence>14 25 24 12</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E15">
+        <Incidence>16 26 25 14</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E16">
+        <Incidence>1018 1027 26 16</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E17">
+        <Incidence>19 28 1029 1020</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E18">
+        <Incidence>21 30 28 19</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E19">
+        <Incidence>22 31 30 21</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E20">
+        <Incidence>23 32 31 22</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E21">
+        <Incidence>24 33 32 23</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E22">
+        <Incidence>25 34 33 24</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E23">
+        <Incidence>26 35 34 25</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E24">
+        <Incidence>1027 1036 35 26</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E25">
+        <Incidence>28 37 1038 1029</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E26">
+        <Incidence>30 39 37 28</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E27">
+        <Incidence>31 40 39 30</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E28">
+        <Incidence>32 41 40 31</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E29">
+        <Incidence>33 42 41 32</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E30">
+        <Incidence>34 43 42 33</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E31">
+        <Incidence>35 44 43 34</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E32">
+        <Incidence>1036 1045 44 35</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E33">
+        <Incidence>37 46 1047 1038</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E34">
+        <Incidence>39 48 46 37</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E35">
+        <Incidence>40 49 48 39</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E36">
+        <Incidence>41 50 49 40</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E37">
+        <Incidence>42 51 50 41</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E38">
+        <Incidence>43 52 51 42</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E39">
+        <Incidence>44 53 52 43</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E40">
+        <Incidence>1045 1054 53 44</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E41">
+        <Incidence>46 55 1056 1047</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E42">
+        <Incidence>48 57 55 46</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E43">
+        <Incidence>49 58 57 48</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E44">
+        <Incidence>50 59 58 49</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E45">
+        <Incidence>51 60 59 50</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E46">
+        <Incidence>52 61 60 51</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E47">
+        <Incidence>53 62 61 52</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="E48">
+        <Incidence>1054 1063 62 53</Incidence>
+        <AnalysisModel>GFemPlaneStress</AnalysisModel>
+        <IntegrationOrder>4 4 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+    </ElementList>
+  </Model>
+  <LoadingList>
+    <Loading label="Carregamento 1"/>
+  </LoadingList>
+  <ScalarFunctions>
+    <ScalarFunction type="ConstantFunction" label="Function-1.0">
+      <Amplitude>1.000E00</Amplitude>
+    </ScalarFunction>
+  </ScalarFunctions>
+  <LoadCombinations>
+    <LoadCombination label="LoadCombination1">
+      <LoadCase loading="Carregamento 1" inc="false" scalarFunction="Function-1.0"/>
+    </LoadCombination>
+  </LoadCombinations>
+</Insane>

@@ -1,0 +1,2649 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.dees.ufmg.br" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified" targetNamespace="http://www.dees.ufmg.br">
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for Insane -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="Insane">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" ref="Solution" />
+        <xs:element minOccurs="1" ref="Model" />
+        <xs:element minOccurs="0" ref="LoadingList" />
+        <xs:element minOccurs="0" ref="RestraintsList" />
+        <xs:element minOccurs="0" ref="ScalarFunctions" />
+        <xs:element minOccurs="0" ref="LoadCombinations" />
+        <xs:element minOccurs="0" ref="RestraintCombinations" />
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for Solution -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="Solution">
+    <xs:complexType>
+      <xs:all>
+      	<xs:element minOccurs="0" ref="CycleControl"/>
+        <xs:element minOccurs="0" ref="Increment" />
+        <xs:element minOccurs="0" ref="LoadingPath" />
+        <xs:element minOccurs="0" ref="ElementSectionsList" />
+        <xs:element minOccurs="0" ref="CurrentPath" />
+        <xs:element minOccurs="0" ref="ElementSections" />
+        <xs:element minOccurs="0" ref="PositionSections" />
+        <xs:element minOccurs="0" ref="NumMaxSteps" />
+        <xs:element minOccurs="0" ref="PrintSteps" />
+        <xs:element minOccurs="0" ref="Step" />
+        <xs:element minOccurs="0" ref="ToleranceControl" />
+        <xs:element minOccurs="0" ref="IterativeStrategyList" />
+        <xs:element minOccurs="0" ref="ReturnMappingAlgorithm" />
+        <xs:element minOccurs="0" ref="StepNumber" />
+        <xs:element minOccurs="0" ref="FinalLoadFactor" />
+        <xs:element minOccurs="0" ref="ModalProblem" />
+        <xs:element minOccurs="0" ref="StepStartTime" />
+        <xs:element minOccurs="0" ref="StepEndTime" />
+        <xs:element minOccurs="0" ref="EndTime" />
+        <xs:element minOccurs="0" ref="TimeStepLength" />
+        <xs:element minOccurs="0" ref="HilberFactor" />
+        <xs:element minOccurs="0" ref="NewmarkFactor" />
+        <xs:element minOccurs="0" ref="NumericalDampingFactor" />
+        <xs:element minOccurs="0" ref="ThetaFactor" />
+        <xs:element minOccurs="0" ref="DampingType" />
+        <xs:element minOccurs="0" ref="IterationMethod" />
+        <xs:element minOccurs="0" ref="NumMaxIterations" />
+        <xs:element minOccurs="0" ref="ConvergenceType" />
+        <xs:element minOccurs="0" ref="EquilibriumType" />
+        <xs:element minOccurs="0" ref="Tolerance" />
+        <xs:element minOccurs="0" ref="IncrementalFactor" />
+        <xs:element minOccurs="0" ref="IterationControl" />
+        <xs:element minOccurs="0" ref="ToleranceLimit" />
+        <xs:element minOccurs="0" ref="SolverType" />
+        <xs:element minOccurs="0" ref="GlobalEnrichedNodes" />
+        <xs:element minOccurs="0" ref="LocalEnricherList" />
+        <xs:element minOccurs="0" ref="LocalPath" />
+        <xs:element minOccurs="0" ref="LoadFactorMultiplier" />
+        <xs:element minOccurs="0" ref="GlobalSolverType" />
+        <xs:element minOccurs="0" ref="LocalSolverType" />
+        <xs:element minOccurs="0" ref="GlobalLocalSolverType" />
+        <xs:element minOccurs="0" ref="GlobalLocalIterations" />
+        <xs:element minOccurs="0" ref="crackTipPoint" />
+        <xs:element minOccurs="0" ref="numberOfElementLayers" />
+        <xs:element minOccurs="0" ref="integralJpath" />
+        <xs:element minOccurs="0" ref="elementsIntersectedByCrack" />
+        <xs:element minOccurs="0" ref="crackDirectionAngle" />
+        <xs:element minOccurs="0" ref="crackModes" />
+        <xs:element minOccurs="0" ref="InteractIntegRadiusMultiplier" />
+      </xs:all>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="CycleControl">
+    <xs:complexType>
+      <xs:all>
+      	<xs:element minOccurs="0" ref="NodeCycleControl"/>
+      	<xs:element minOccurs="0" ref="DirectionCycleControl"/>
+      	<xs:element minOccurs="0" ref="NumCycles"/>
+      	<xs:element minOccurs="0" ref="TolCycles"/>
+		<xs:element minOccurs="0" ref="Script"/>
+      </xs:all>
+      <xs:attribute name="type" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="NodeCycleControl" type="xs:string" />
+   
+  <xs:element name="DirectionCycleControl" type="xs:string" />
+  
+  <xs:element name="NumCycles" type="xs:string" />
+  <xs:element name="TolCycles" type="xs:string" />
+  
+  <xs:element name="Script">
+    <xs:complexType>
+      <xs:sequence>
+      	<xs:element minOccurs="0" maxOccurs="unbounded" ref="Cycle" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+    <xs:element name="Cycle" type="xs:string" />
+  
+  
+  <xs:element name="Increment" type="xs:double" />
+  <xs:element name="LoadingPath" type="xs:string" />
+
+  <xs:element name="ElementSectionsList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ElementSections" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ElementSections">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="PositionSections" />
+      </xs:all>
+      <xs:attribute name="elmLabel" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="CurrentPath">
+    <xs:complexType>
+      <xs:attribute name="elmLabel" type="xs:string" use="required" />
+      <xs:attribute name="loadingCoord" type="xs:double"
+        use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="PositionSections" type="xs:string" />
+  <xs:element name="NumMaxSteps" type="xs:integer" />
+  <xs:element name="PrintSteps" type="xs:integer" />
+  <xs:element name="Step">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="NumMaxIterations" />
+        <xs:element ref="Tolerance" />
+        <xs:element ref="ConvergenceType" />
+        <xs:element minOccurs="0" ref="EquilibriumType" />
+        <xs:element minOccurs="0" ref="LoadFactorMultiplier" />
+      </xs:all>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="NumMaxIterations" type="xs:integer" />
+  <xs:element name="Tolerance" type="xs:double" />
+  <xs:element name="ConvergenceType" type="xs:integer" />
+  <xs:element name="EquilibriumType" type="xs:string" />
+  <xs:element name="LoadFactorMultiplier" type="xs:double" />
+
+  <xs:element name="ToleranceControl">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="IncrementalFactor" />
+        <xs:element ref="IterationControl" />
+        <xs:element ref="ToleranceLimit" />
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="IncrementalFactor" type="xs:double" />
+  <xs:element name="IterationControl" type="xs:integer" />
+  <xs:element name="ToleranceLimit" type="xs:double" />
+
+  <xs:element name="IterativeStrategyList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="IterativeStrategy" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="IterativeStrategy">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="NodeControl" />
+        <xs:element minOccurs="0" ref="DirectionControl" />
+      </xs:all>
+      <xs:attribute name="LoadFactor" type="xs:double" use="required" />
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="NodeControl" type="xs:string" />
+  <xs:element name="DirectionControl" type="xs:string" />
+  <xs:element name="StepNumber" type="xs:integer" />
+  <xs:element name="FinalLoadFactor" type="xs:double" />
+  <xs:element name="ReturnMappingAlgorithm" type="xs:string" />
+
+  <xs:element name="ModalProblem">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="Precision" />
+        <xs:element ref="NumberOfModes" />
+        <xs:element minOccurs="0" ref="NaturalFrequencies" />
+      </xs:all>
+      <xs:attribute name="type" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Precision" type="xs:double" />
+  <xs:element name="NumberOfModes" type="xs:integer" />
+  <xs:element name="NaturalFrequencies" type="xs:string" />
+  <xs:element name="StepStartTime" type="xs:double" />
+  <xs:element name="StepEndTime" type="xs:double" />
+  <xs:element name="EndTime" type="xs:double" />
+  <xs:element name="TimeStepLength" type="xs:double" />
+  <xs:element name="HilberFactor" type="xs:double" />
+  <xs:element name="NewmarkFactor" type="xs:double" />
+  <xs:element name="NumericalDampingFactor" type="xs:double" />
+  <xs:element name="ThetaFactor" type="xs:double" />
+  <xs:element name="IterationMethod" type="xs:string" />
+
+  <xs:element name="DampingType">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="ModalDampingVector" />
+        <xs:element minOccurs="0" ref="RayleighCoefficients" />
+      </xs:all>
+      <xs:attribute name="type" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ModalDampingVector" type="xs:string" />
+  <xs:element name="RayleighCoefficients" type="xs:string" />
+  <xs:element name="SolverType" type="xs:string" />
+  <xs:element name="GlobalEnrichedNodes" type="xs:string" />
+  <xs:element name="LocalEnricherList" type="xs:string" />
+  <xs:element name="LocalPath" type="xs:string" />
+  <xs:element name="GlobalSolverType" type="xs:string" />
+  <xs:element name="LocalSolverType" type="xs:string" />
+  <xs:element name="GlobalLocalSolverType" type="xs:string" />
+  <xs:element name="GlobalLocalIterations" type="xs:string" />
+  <xs:element name="crackTipPoint" type="xs:string" />
+  <xs:element name="numberOfElementLayers" type="xs:string" />
+  <xs:element name="integralJpath" type="xs:string" />
+  <xs:element name="elementsIntersectedByCrack" type="xs:string" />
+  <xs:element name="crackDirectionAngle" type="xs:string" />
+  <xs:element name="crackModes" type="xs:string" />
+  <xs:element name="InteractIntegRadiusMultiplier" type="xs:string" />
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for Model -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="Model">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="NonLocalParameters" />
+		<xs:element minOccurs="0" ref="LocalizationAnalysis" />
+        <xs:element ref="ProblemDriver" />
+        <xs:element ref="GlobalAnalysisModel" />
+        <xs:element ref="MaterialList" />
+        <xs:element ref="DegenerationList" />
+		<xs:element minOccurs="0" ref="Indexed" />								   
+        <xs:element minOccurs="0" ref="EnrichmentList" />
+        <xs:element minOccurs="0" ref="DiscontinuityList" />
+        <xs:element minOccurs="0" ref="IsWithCrackPropagation" />
+        <xs:element minOccurs="0" ref="PenaltyParameter" />
+        <xs:element minOccurs="0" ref="IntegrationScheme" />
+        <xs:element minOccurs="0" ref="VoronoiCellPostProcessor" />
+        <xs:element minOccurs="0" ref="AutomaticNodalDistribution" />
+        <xs:element minOccurs="0" ref="ConstraintImpositionMethod" />
+        <xs:element minOccurs="0" ref="DomainLimitsCoords" />
+        <xs:element minOccurs="0" ref="KappaParameter" />
+        <xs:element minOccurs="0" ref="NodeList" />
+        <xs:element minOccurs="0" ref="ElementList" />
+        <xs:element minOccurs="0" ref="GeometryDescription" />
+        <xs:element minOccurs="0" ref="GeometryEntityList" />
+        <xs:element minOccurs="0" ref="EnrichmentFunctionList" />
+        <xs:element minOccurs="0" ref="EnrichmentItemList" />
+        <xs:element minOccurs="0" ref="CrackGrowthDirectionLaw" />
+        <xs:element minOccurs="0" ref="CrackGrowthIncrementLaw" />
+        <xs:element minOccurs="0" ref="CrackPropagation" />
+        <xs:element minOccurs="0" ref="NonLinearConstitutiveModel" />
+        <xs:element minOccurs="0" ref="MfreeNodeList" />
+        <xs:element minOccurs="0" ref="InfluenceDomainList" />
+        <xs:element minOccurs="0" ref="MeshFree" />
+        <!-- BEM begin -->
+        <xs:element minOccurs="0" ref="BemNodeList" />
+        <!-- BEM end -->
+      </xs:all>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for AUTOMATIC_NODAL_DISTRIBUTION -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="AutomaticNodalDistribution">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" ref="NodalDistributionType" />
+      </xs:sequence>
+      <xs:attribute name="class" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="NodalDistributionType">
+    <xs:complexType>
+      <xs:choice minOccurs="1" maxOccurs="unbounded">
+        <xs:element maxOccurs="1" minOccurs="0" ref="dx" />
+        <xs:element maxOccurs="1" minOccurs="0" ref="dy" />
+        <xs:element maxOccurs="1" minOccurs="1"
+          ref="NumberOfNodesAtBorder" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="dx" type="xs:double" />
+  <xs:element name="dy" type="xs:double" />
+  <xs:element name="NumberOfNodesAtBorder" type="xs:string" />
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for NONLOCAL_PARAMETERS -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="NonLocalParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="DistributionFunction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="DistributionFunction">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element minOccurs="1" ref="DimL" />
+        <xs:element minOccurs="0" ref="Constant" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+      <xs:attribute name="label" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="DimL" type="xs:double" />
+  <xs:element name="Constant" type="xs:double" />
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for LOCALIZATION_ANALYSIS -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="LocalizationAnalysis" type="xs:string" />
+  
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for PROBLEM_DRIVER -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="ProblemDriver" type="xs:string" />
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for PENALTY_PARAMETER -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="PenaltyParameter" type="xs:string" />
+
+  <!-- XML Schema for INTEGRATION_SCHEME -->
+  <xs:element name="IntegrationScheme" type="xs:string" />
+  <!-- XML Schema for VORONOI_CELL_POST_PROCESSOR -->
+  <xs:element name="VoronoiCellPostProcessor" type="xs:boolean" />
+  <!-- XML Schema for CONSTRAINT_IMPOSITION_METHOD -->
+  <xs:element name="ConstraintImpositionMethod" type="xs:string" />
+  <!-- XML Schema for KAPPA_PARAMETER -->
+  <xs:element name="KappaParameter" type="xs:string" />
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for GLOBAL_ANALYSIS_MODEL -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="GlobalAnalysisModel" type="xs:string" />
+
+  <xs:element name="Indexed" type="xs:string" />
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for MATERIAL_LIST -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="MaterialList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Material" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Material">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element minOccurs="0" ref="Material" />
+        <xs:element minOccurs="0" ref="Elasticity" />
+        <xs:element minOccurs="0" ref="Elasticity2" />
+        <xs:element minOccurs="0" ref="Elasticity11" />
+        <xs:element minOccurs="0" ref="Elasticity22" />
+        <xs:element minOccurs="0" ref="Elasticity33" />
+        <xs:element minOccurs="0" ref="Poisson" />
+        <xs:element minOccurs="0" ref="Poisson12" />
+        <xs:element minOccurs="0" ref="Poisson13" />
+        <xs:element minOccurs="0" ref="Poisson23" />
+        <xs:element minOccurs="0" ref="ShearModulus" />
+        <xs:element minOccurs="0" ref="ShearModulus13" />
+        <xs:element minOccurs="0" ref="ShearModulus23" />
+        <xs:element minOccurs="0" ref="ShearFactor" />
+        <xs:element minOccurs="0" ref="ThermalCoeff" />
+        <xs:element minOccurs="0" ref="Density" />
+        <xs:element minOccurs="0" ref="DampingFactor" />
+        <xs:element minOccurs="0" ref="Yielding" />
+        <xs:element minOccurs="0" ref="EpsilonMax" />
+        <xs:element minOccurs="0" ref="Hardening" />
+        <xs:element minOccurs="0" ref="HardeningModulus" />
+        <xs:element minOccurs="0" ref="KinematicModulus" />
+        <xs:element minOccurs="0" ref="Frictional" />
+        <xs:element minOccurs="0" ref="Dilatancy" />
+        <xs:element minOccurs="0" ref="Calibration" />
+        <xs:element minOccurs="0" ref="MC_Aproach" />
+        <xs:element minOccurs="0" ref="Fctm" />
+        <xs:element minOccurs="0" ref="Fck" />
+        <xs:element minOccurs="0" ref="RushEffect" />
+         <xs:element minOccurs="0" ref="Gamma_C" />
+        <xs:element minOccurs="0" ref="Fc" />
+        <xs:element minOccurs="0" ref="Ft" />
+        <xs:element minOccurs="0" ref="Ftr1" />
+        <xs:element minOccurs="0" ref="Ftr3" />
+        <xs:element minOccurs="0" ref="lcs" />
+        <xs:element minOccurs="0" ref="alpha" />
+        <xs:element minOccurs="0" ref="sp1" />
+        <xs:element minOccurs="0" ref="sp2" />
+        <xs:element minOccurs="0" ref="Es" />
+        <xs:element minOccurs="0" ref="SurfaceShape" />
+        <xs:element minOccurs="0" ref="gf" />
+        <xs:element minOccurs="0" ref="ShearProperties" />
+        <xs:element minOccurs="0" ref="BETA" />
+        <xs:element minOccurs="0" ref="ec" />
+        <xs:element minOccurs="0" ref="et" />
+        <xs:element minOccurs="0" ref="E0" />
+        <xs:element minOccurs="0" ref="Ec0" />
+        <xs:element minOccurs="0" ref="Ecm" />
+        <xs:element minOccurs="0" ref="Fcm" />
+        <xs:element minOccurs="0" ref="Dc1" />
+        <xs:element minOccurs="0" ref="Dcu" />
+        <xs:element minOccurs="0" ref="LengthBending" />
+        <xs:element minOccurs="0" ref="LengthTorsion" />
+        <xs:element minOccurs="0" ref="Alpha" />
+        <xs:element minOccurs="0" ref="Eta" />
+        <xs:element minOccurs="0" ref="a1" />
+        <xs:element minOccurs="0" ref="p1" />
+        <xs:element minOccurs="0" ref="a" />
+        <xs:element minOccurs="0" ref="b" />
+        <xs:element minOccurs="0" ref="p" />
+        <xs:element minOccurs="0" ref="q" />
+        <xs:element minOccurs="0" ref="a2" />
+        <xs:element minOccurs="0" ref="p2" />
+        <xs:element minOccurs="0" ref="a3" />
+        <xs:element minOccurs="0" ref="p3" />
+        <xs:element minOccurs="0" ref="etaO" />
+        <xs:element minOccurs="0" ref="ka" />
+        <xs:element minOccurs="0" ref="a30" />
+        <xs:element minOccurs="0" ref="Alfa" />
+        <xs:element minOccurs="0" ref="Beta" />
+        <xs:element minOccurs="0" ref="K0" />
+        <xs:element minOccurs="0" ref="Ratio" />
+        <xs:element minOccurs="0" ref="C" />
+        <xs:element minOccurs="0" ref="H" />
+        <xs:element minOccurs="0" ref="LengthTension" />
+        <xs:element minOccurs="0" ref="AlfaStrainMic" />
+        <xs:element minOccurs="0" ref="AlfaCurvature" />
+        <xs:element minOccurs="0" ref="AlfaMicroexpansionGrad" />
+        <xs:element minOccurs="0" ref="BetaStrainMic" />
+        <xs:element minOccurs="0" ref="BetaCurvature" />
+        <xs:element minOccurs="0" ref="BetaMicroexpansionGrad" />
+        <xs:element minOccurs="0" ref="k0StrainMic" />
+        <xs:element minOccurs="0" ref="k0Curvature" />
+        <xs:element minOccurs="0" ref="k0MicroexpansionGrad" />
+        <xs:element minOccurs="0" ref="AlfaStrain" />
+        <xs:element minOccurs="0" ref="BetaStrain" />
+        <xs:element minOccurs="0" ref="k0Strain" />
+        <xs:element minOccurs="0" ref="LC" />
+        <xs:element minOccurs="0" ref="Bth" />
+        <xs:element minOccurs="0" ref="E2" />
+        <xs:element minOccurs="0" ref="KC" />
+        <xs:element minOccurs="0" ref="KT" />
+        <xs:element minOccurs="0" ref="D_0_II" />
+        <xs:element minOccurs="0" ref="tu" />
+        <xs:element minOccurs="0" ref="Gf_s" />
+        <xs:element minOccurs="0" ref="Betha" />
+        <xs:element minOccurs="0" ref="Betha_T" />
+        <xs:element minOccurs="0" ref="Betha_C" />
+        <xs:element minOccurs="0" ref="Betha_D" />
+        <xs:element minOccurs="0" ref="Aph" />
+        <xs:element minOccurs="0" ref="Aph_T" />
+        <xs:element minOccurs="0" ref="Aph_C" />
+        <xs:element minOccurs="0" ref="Aph_D" />
+        <xs:element minOccurs="0" ref="KAPPA_0" />
+        <xs:element minOccurs="0" ref="KAPPA_F" />
+        <xs:element minOccurs="0" ref="KAPPA_0_T" />
+        <xs:element minOccurs="0" ref="KAPPA_0_C" />
+        <xs:element minOccurs="0" ref="KAPPA_0_D" />
+        <xs:element minOccurs="0" ref="FractureEnergy" />
+        <xs:element minOccurs="0" ref="TensileStrength" />
+        <xs:element minOccurs="0" ref="InitialCrackShearStiffness" />
+        <xs:element minOccurs="0" ref="at" />
+        <xs:element minOccurs="0" ref="bt" />
+        <xs:element minOccurs="0" ref="kat" />
+        <xs:element minOccurs="0" ref="ac" />
+        <xs:element minOccurs="0" ref="bc" />
+        <xs:element minOccurs="0" ref="kac" />
+        <xs:element minOccurs="0" ref="ft0" />
+        <xs:element minOccurs="0" ref="fc0" />
+        <xs:element minOccurs="0" ref="fte" />
+        <xs:element minOccurs="0" ref="fce" />
+        <xs:element minOccurs="0" ref="Dt0" />
+        <xs:element minOccurs="0" ref="Dc0" />
+        <xs:element minOccurs="0" ref="ct" />
+        <xs:element minOccurs="0" ref="cc" />
+        <xs:element minOccurs="0" ref="btht" />
+        <xs:element minOccurs="0" ref="bthc" />
+        <xs:element minOccurs="0" ref="Kr" />
+        <xs:element minOccurs="0" ref="K" />
+        <xs:element minOccurs="0" ref="EquivalentStrain" />
+        <xs:element minOccurs="0" ref="BETA_VOLUMETRIC_DAMAGE_FACTOR" />
+        <xs:element minOccurs="0" ref="BETA_DEVIATORIC_DAMAGE_FACTOR" />
+        <xs:element minOccurs="0" ref="BETA_SHEAR_COSSERAT_DAMAGE_FACTOR" />
+        <xs:element minOccurs="0" ref="HardeningLaw" />
+        <xs:element minOccurs="0" ref="DamageLaw" />
+        <xs:element minOccurs="0" ref="LeukartDamageLaw" />
+        <xs:element minOccurs="0" ref="ThermoForceDamageLaw" />
+        <xs:element minOccurs="0" ref="IFIDamageLaw" />
+        <xs:element minOccurs="0" ref="SimoJuDamageLaw" />
+        <xs:element minOccurs="0" ref="SimoJuMicropolarDamageLaw" />
+        <xs:element minOccurs="0" ref="SimoJuMicromorphicDamageLaw" />
+        <xs:element minOccurs="0" ref="JuDamageLaw" />
+        <xs:element minOccurs="0" ref="JuMicropolarDamageLaw" />
+        <xs:element minOccurs="0" ref="MazarsLemaitreDamageLaw" />
+        <xs:element minOccurs="0" ref="MazarsMisesDruckerPragerDamageLaw" />
+        <xs:element minOccurs="0" ref="MazarsLemaitreMicropolarDamageLaw" />
+        <xs:element minOccurs="0" ref="MazarsLemaitreMicromorphicDamageLaw" />
+        <xs:element minOccurs="0" ref="MazarsDamageLaw" />
+        <xs:element minOccurs="0" ref="MazarsMicropolarDamageLaw" />
+        <xs:element minOccurs="0" ref="DeVreeDamageLaw" />
+        <xs:element minOccurs="0" ref="DeVreeMicropolarDamageLaw" />
+        <xs:element minOccurs="0" ref="LemaitreChabocheDamageLaw" />
+        <xs:element minOccurs="0" ref="LemaitreChabocheMicropolarDamageLaw" />
+        <xs:element minOccurs="0" ref="GeneralIsotropicDeviatoricVolumetricMicroPolarMazarsDamageLaw" />
+        <xs:element minOccurs="0" ref="TensionDamageLaw" />
+        <xs:element minOccurs="0" ref="CompressionDamageLaw" />
+        <xs:element minOccurs="0" ref="VolumetricTensionEvolution" />
+        <xs:element minOccurs="0" ref="VolumetricCompressionEvolution" />
+        <xs:element minOccurs="0" ref="DeviatoricEvolution" />
+        <xs:element minOccurs="0" ref="CONSTANT_R" />
+        <xs:element minOccurs="0" ref="CONSTANT_S" />
+        <xs:element minOccurs="0" ref="BondLawX" />
+        <xs:element minOccurs="0" ref="BondLawY" />
+        <xs:element minOccurs="0" ref="BondLawZ" />
+        <xs:element minOccurs="0" ref="MomentCurvatureList" />
+        <xs:element minOccurs="0" ref="Conductivity" />
+        <xs:element minOccurs="0" ref="SpecificHeat" />
+        <xs:element minOccurs="0" ref="Emissivity" />
+        <xs:element minOccurs="0" ref="BETHA_REF" />
+        <xs:element minOccurs="0" ref="K_REF" />
+        <xs:element minOccurs="0" ref="KAPPA_INCREMENT" />
+        <xs:element minOccurs="0" ref="ALPHA_DAMAGE" />
+        <xs:element minOccurs="0" ref="R" />
+        <xs:element minOccurs="0" ref="R_FACTOR_RELOAD" />
+        <xs:element minOccurs="0" ref="R_FACTOR_UNLOAD" />
+        <xs:element minOccurs="0" ref="EPS_MAX1" />
+        <xs:element minOccurs="0" ref="EPS_MAX2" />
+        <xs:element minOccurs="0" ref="S_FOCAL_1" />
+        <xs:element minOccurs="0" ref="EPS_FOCAL_1" />
+        <xs:element minOccurs="0" ref="S_FOCAL_2" />
+        <xs:element minOccurs="0" ref="EPS_FOCAL_2" />
+        <xs:element minOccurs="0" ref="S_FOCAL_C" />
+        <xs:element minOccurs="0" ref="EPS_FOCAL_C" />
+        <xs:element minOccurs="0" ref="S_FOCAL_T" />
+        <xs:element minOccurs="0" ref="EPS_FOCAL_T" />
+        <xs:element minOccurs="0" ref="ED" />
+        <xs:element minOccurs="0" ref="LENGTH_SCALE" />
+        <xs:element minOccurs="0" ref="EnergeticDegradationFunction" />
+        <xs:element minOccurs="0" ref="GeometricCrackFunction" />
+        <xs:element minOccurs="0" ref="Lambda" />
+        <xs:element minOccurs="0" ref="Mu" />
+        <xs:element minOccurs="0" ref="Kappa" />
+        <xs:element minOccurs="0" ref="Nu" />
+        <xs:element minOccurs="0" ref="Sigma" />
+        <xs:element minOccurs="0" ref="Tau" />
+        <xs:element minOccurs="0" ref="Tau_1" />
+        <xs:element minOccurs="0" ref="Tau_2" />
+        <xs:element minOccurs="0" ref="Tau_3" />
+        <xs:element minOccurs="0" ref="Tau_4" />
+        <xs:element minOccurs="0" ref="Tau_5" />
+        <xs:element minOccurs="0" ref="Tau_6" />
+        <xs:element minOccurs="0" ref="Tau_7" />
+        <xs:element minOccurs="0" ref="Tau_8" />
+        <xs:element minOccurs="0" ref="Tau_9" />
+        <xs:element minOccurs="0" ref="Tau_10" />
+        <xs:element minOccurs="0" ref="Tau_11" />
+        <xs:element minOccurs="0" ref="l_ch" />
+        <xs:element minOccurs="0" ref="Microcontinuum" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+      <xs:attribute name="label" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Elasticity" type="xs:double" />
+  <xs:element name="Elasticity2" type="xs:double" />
+  <xs:element name="Elasticity11" type="xs:double" />
+  <xs:element name="Elasticity22" type="xs:double" />
+  <xs:element name="Elasticity33" type="xs:double" />
+  <xs:element name="Poisson" type="xs:double" />
+  <xs:element name="Poisson12" type="xs:double" />
+  <xs:element name="Poisson13" type="xs:double" />
+  <xs:element name="Poisson23" type="xs:double" />
+  <xs:element name="ShearModulus" type="xs:double" />
+  <xs:element name="ShearModulus13" type="xs:double" />
+  <xs:element name="ShearModulus23" type="xs:double" />
+  <xs:element name="ShearFactor" type="xs:double" />
+  <xs:element name="ThermalCoeff" type="xs:double" />
+  <xs:element name="Density" type="xs:double" />
+  <xs:element name="DampingFactor" type="xs:double" />
+  <xs:element name="Yielding" type="xs:double" />
+  <xs:element name="Hardening" type="xs:double" />
+  <xs:element name="EpsilonMax" type="xs:double" />
+  <xs:element name="HardeningModulus" type="xs:double" />
+  <xs:element name="KinematicModulus" type="xs:double" />
+  <xs:element name="Frictional" type="xs:double" />
+  <xs:element name="Dilatancy" type="xs:double" />
+  <xs:element name="Calibration" type="xs:double" />
+  <xs:element name="MC_Aproach" type="xs:double" />
+  <xs:element name="Fck" type="xs:double" />
+  <xs:element name="RushEffect" type="xs:double" />
+  <xs:element name="Gamma_C" type="xs:double" />
+  <xs:element name="Fc" type="xs:double" />
+  <xs:element name="Ft" type="xs:double" />
+  <xs:element name="Ftr1" type="xs:double" />
+  <xs:element name="Ftr3" type="xs:double" />
+  <xs:element name="lcs" type="xs:double" />
+  <xs:element name="alpha" type="xs:double" />
+  <xs:element name="sp1" type="xs:double" />
+  <xs:element name="sp2" type="xs:double" />
+  <xs:element name="Es" type="xs:double" />
+  <xs:element name="SurfaceShape" type="xs:double" />
+  <xs:element name="gf" type="xs:double" />
+  <xs:element name="BETA" type="xs:double" />
+  <xs:element name="ec" type="xs:double" />
+  <xs:element name="et" type="xs:double" />
+  <xs:element name="E0" type="xs:double" />
+  <xs:element name="Ec0" type="xs:double" />
+  <xs:element name="Ecm" type="xs:double" />
+  <xs:element name="Fcm" type="xs:double" />
+  <xs:element name="Fctm" type="xs:double" />
+  <xs:element name="Dc1" type="xs:double" />
+  <xs:element name="Dcu" type="xs:double" />
+  <xs:element name="LengthBending" type="xs:double" />
+  <xs:element name="Alpha" type="xs:double" />
+  <xs:element name="LengthTorsion" type="xs:double" />
+  <xs:element name="Eta" type="xs:double" />
+  <xs:element name="a1" type="xs:double" />
+  <xs:element name="p1" type="xs:double" />
+  <xs:element name="a" type="xs:double" />
+  <xs:element name="b" type="xs:double" />
+  <xs:element name="p" type="xs:double" />
+  <xs:element name="q" type="xs:double" />
+  <xs:element name="a2" type="xs:double" />
+  <xs:element name="p2" type="xs:double" />
+  <xs:element name="a3" type="xs:double" />
+  <xs:element name="p3" type="xs:double" />
+  <xs:element name="etaO" type="xs:double" />
+  <xs:element name="ka" type="xs:double" />
+  <xs:element name="a30" type="xs:double" />
+  <xs:element name="Alfa" type="xs:double" />
+  <xs:element name="Beta" type="xs:double" />
+  <xs:element name="K0" type="xs:double" />
+  <xs:element name="Ratio" type="xs:double" />
+  <xs:element name="C" type="xs:double" />
+  <xs:element name="H" type="xs:double" />
+  <xs:element name="LengthTension" type="xs:double" />
+  <xs:element name="AlfaStrainMic" type="xs:double" />
+  <xs:element name="AlfaCurvature" type="xs:double" />
+  <xs:element name="AlfaMicroexpansionGrad" type="xs:double" />
+  <xs:element name="BetaStrainMic" type="xs:double" />
+  <xs:element name="BetaCurvature" type="xs:double" />
+  <xs:element name="BetaMicroexpansionGrad" type="xs:double" />
+  <xs:element name="k0StrainMic" type="xs:double" />
+  <xs:element name="k0Curvature" type="xs:double" />
+  <xs:element name="k0MicroexpansionGrad" type="xs:double" />
+  <xs:element name="AlfaStrain" type="xs:double" />
+  <xs:element name="BetaStrain" type="xs:double" />
+  <xs:element name="k0Strain" type="xs:double" />
+  <xs:element name="LC" type="xs:double" />
+  <xs:element name="Bth" type="xs:double" />
+  <xs:element name="E2" type="xs:double" />
+  <xs:element name="KC" type="xs:double" />
+  <xs:element name="KT" type="xs:double" />
+  <xs:element name="D_0_II" type="xs:double" />
+  <xs:element name="tu" type="xs:double" />
+  <xs:element name="Gf_s" type="xs:double" />
+  <xs:element name="Betha" type="xs:double" />
+  <xs:element name="Betha_T" type="xs:double" />
+  <xs:element name="Betha_C" type="xs:double" />
+  <xs:element name="Betha_D" type="xs:double" />
+  <xs:element name="BETA_VOLUMETRIC_DAMAGE_FACTOR" type="xs:double" />
+  <xs:element name="BETA_DEVIATORIC_DAMAGE_FACTOR" type="xs:double" />
+  <xs:element name="BETA_SHEAR_COSSERAT_DAMAGE_FACTOR" type="xs:double" />
+  <xs:element name="Aph" type="xs:double" />
+  <xs:element name="Aph_T" type="xs:double" />
+  <xs:element name="Aph_C" type="xs:double" />
+  <xs:element name="Aph_D" type="xs:double" />
+  <xs:element name="KAPPA_0" type="xs:double" />
+  <xs:element name="KAPPA_F" type="xs:double" />
+  <xs:element name="KAPPA_0_T" type="xs:double" />
+  <xs:element name="KAPPA_0_C" type="xs:double" />
+  <xs:element name="KAPPA_0_D" type="xs:double" />
+  <xs:element name="FractureEnergy" type="xs:double" />
+  <xs:element name="TensileStrength" type="xs:double" />
+  <xs:element name="InitialCrackShearStiffness" type="xs:double" />
+  <xs:element name="at" type="xs:double" />
+  <xs:element name="bt" type="xs:double" />
+  <xs:element name="kat" type="xs:double" />
+  <xs:element name="ac" type="xs:double" />
+  <xs:element name="bc" type="xs:double" />
+  <xs:element name="kac" type="xs:double" />
+  <xs:element name="ft0" type="xs:double" />
+  <xs:element name="fc0" type="xs:double" />
+  <xs:element name="fte" type="xs:double" />
+  <xs:element name="fce" type="xs:double" />
+  <xs:element name="Dt0" type="xs:double" />
+  <xs:element name="Dc0" type="xs:double" />
+  <xs:element name="ct" type="xs:double" />
+  <xs:element name="cc" type="xs:double" />
+  <xs:element name="btht" type="xs:double" />
+  <xs:element name="bthc" type="xs:double" />
+  <xs:element name="CONSTANT_R" type="xs:double" />
+  <xs:element name="CONSTANT_S" type="xs:double" />
+  <xs:element name="Conductivity" type="xs:double" />
+  <xs:element name="SpecificHeat" type="xs:double" />
+  <xs:element name="Emissivity" type="xs:double" />
+  <xs:element name="BETHA_REF" type="xs:double" />
+  <xs:element name="LENGTH_SCALE" type="xs:double" />
+  <xs:element name="EnergeticDegradationFunction" type="xs:string" />
+  <xs:element name="GeometricCrackFunction" type="xs:string" />
+  <xs:element name="K_REF" type="xs:double" />
+  <xs:element name="KAPPA_INCREMENT" type="xs:double" />
+  <xs:element name="ALPHA_DAMAGE" type="xs:double" />
+  <xs:element name="R" type="xs:double" />
+  <xs:element name="R_FACTOR_UNLOAD" type="xs:double" />
+  <xs:element name="R_FACTOR_RELOAD" type="xs:double" />
+  <xs:element name="EPS_MAX1" type="xs:double" />
+  <xs:element name="EPS_MAX2" type="xs:double" />
+  <xs:element name="S_FOCAL_1" type="xs:double" />
+  <xs:element name="EPS_FOCAL_1" type="xs:double" />
+  <xs:element name="S_FOCAL_2" type="xs:double" />
+  <xs:element name="EPS_FOCAL_2" type="xs:double" />
+    <xs:element name="S_FOCAL_C" type="xs:double" />
+  <xs:element name="EPS_FOCAL_C" type="xs:double" />
+  <xs:element name="S_FOCAL_T" type="xs:double" />
+  <xs:element name="EPS_FOCAL_T" type="xs:double" />
+  <xs:element name="ED" type="xs:double" />
+  <xs:element name="Mu" type="xs:double" />
+  <xs:element name="Kappa" type="xs:double" />
+  <xs:element name="Nu" type="xs:double" />
+  <xs:element name="Sigma" type="xs:double" />
+  <xs:element name="Tau" type="xs:double" />
+  <xs:element name="Tau_1" type="xs:double" />
+  <xs:element name="Tau_2" type="xs:double" />
+  <xs:element name="Tau_3" type="xs:double" />
+  <xs:element name="Tau_4" type="xs:double" />
+  <xs:element name="Tau_5" type="xs:double" />
+  <xs:element name="Tau_6" type="xs:double" />
+  <xs:element name="Tau_7" type="xs:double" />
+  <xs:element name="Tau_8" type="xs:double" />
+  <xs:element name="Tau_9" type="xs:double" />
+  <xs:element name="Tau_10" type="xs:double" />
+  <xs:element name="Tau_11" type="xs:double" />
+  <xs:element name="l_ch" type="xs:double" />
+  <xs:element name="Microcontinuum" type="xs:string" />
+
+  <xs:element name="ShearProperties">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="D0II" />
+        <xs:element minOccurs="0" ref="Tu" />
+        <xs:element minOccurs="0" ref="gfs" />
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="D0II" type="xs:double" />
+  <xs:element name="Tu" type="xs:double" />
+  <xs:element name="gfs" type="xs:double" />
+
+  <xs:element name="HardeningLaw">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="HardeningVariables" />
+      </xs:all>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="DamageLaw">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+      </xs:all>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="LeukartDamageLaw">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+        <xs:element minOccurs="0" ref="HardeningVariables" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ThermoForceDamageLaw">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+        <xs:element minOccurs="0" ref="HardeningVariables" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Kr" type="xs:double" />
+    <xs:element name="K" type="xs:double" />
+
+  <xs:element name="IFIDamageLaw">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+        <xs:element minOccurs="0" ref="HardeningVariables" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="SimoJuDamageLaw">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+        <xs:element minOccurs="0" ref="HardeningVariables" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="SimoJuMicropolarDamageLaw">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+        <xs:element minOccurs="0" ref="HardeningVariables" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="SimoJuMicromorphicDamageLaw">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+      </xs:all>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="JuDamageLaw">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+        <xs:element minOccurs="0" ref="HardeningVariables" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="JuMicropolarDamageLaw">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+        <xs:element minOccurs="0" ref="HardeningVariables" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MazarsLemaitreDamageLaw">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+        <xs:element minOccurs="0" ref="HardeningVariables" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+  
+    <xs:element name="MazarsMisesDruckerPragerDamageLaw">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+        <xs:element minOccurs="0" ref="HardeningVariables" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MazarsLemaitreMicropolarDamageLaw">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+        <xs:element minOccurs="0" ref="HardeningVariables" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="MazarsLemaitreMicromorphicDamageLaw">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+      </xs:all>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MazarsDamageLaw">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+        <xs:element minOccurs="0" ref="HardeningVariables" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="MazarsMicropolarDamageLaw">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+        <xs:element minOccurs="0" ref="HardeningVariables" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="DeVreeDamageLaw">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+        <xs:element minOccurs="0" ref="HardeningVariables" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="DeVreeMicropolarDamageLaw">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+        <xs:element minOccurs="0" ref="HardeningVariables" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="LemaitreChabocheDamageLaw">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+        <xs:element minOccurs="0" ref="HardeningVariables" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="LemaitreChabocheMicropolarDamageLaw">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+        <xs:element minOccurs="0" ref="HardeningVariables" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element
+    name="GeneralIsotropicDeviatoricVolumetricMicroPolarMazarsDamageLaw">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+        <xs:element minOccurs="0" ref="HardeningVariables" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="TensionDamageLaw">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+        <xs:element minOccurs="0" ref="HardeningVariables" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="CompressionDamageLaw">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+        <xs:element minOccurs="0" ref="HardeningVariables" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="VolumetricTensionEvolution">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+        <xs:element minOccurs="0" ref="HardeningVariables" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="VolumetricCompressionEvolution">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+        <xs:element minOccurs="0" ref="HardeningVariables" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="DeviatoricEvolution">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element minOccurs="0" ref="DamageLawVariables" />
+        <xs:element minOccurs="0" ref="HardeningVariables" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="HardeningVariables">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="HardeningModulus" />
+        <xs:element minOccurs="0" ref="KinematicModulus" />
+        <xs:element minOccurs="0" ref="Yielding" />
+        <xs:element minOccurs="0" ref="ALPHA" />
+        <xs:element minOccurs="0" ref="BETHA" />
+        <xs:element minOccurs="0" ref="KAPPA" />
+        <xs:element minOccurs="0" ref="TLim" />
+        <xs:element minOccurs="0" ref="DLim" />
+        <xs:element minOccurs="0" ref="Eeq" />
+        <xs:element minOccurs="0" ref="Kdl0" />
+        <xs:element minOccurs="0" ref="KdlF" />
+        <xs:element minOccurs="0" ref="Kdbl0" />
+        <xs:element minOccurs="0" ref="KdblCR" />
+        <xs:element minOccurs="0" ref="KdblU" />
+        <xs:element minOccurs="0" ref="Fdbl0" />
+        <xs:element minOccurs="0" ref="FdblCR" />
+        <xs:element minOccurs="0" ref="FdblU" />
+        <xs:element minOccurs="0" ref="a" />
+        <xs:element minOccurs="0" ref="b" />
+        <xs:element minOccurs="0" ref="fy" />
+        <xs:element minOccurs="0" ref="k0" />
+        <xs:element minOccurs="0" ref="kf" />
+        <xs:element minOccurs="0" ref="n" />
+        <xs:element minOccurs="0" ref="n1" />
+        <xs:element minOccurs="0" ref="n2" />
+        <xs:element minOccurs="0" ref="cg" />
+        <xs:element minOccurs="0" ref="DamageThreshold" />
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="DamageLawVariables">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="ALPHA" />
+        <xs:element minOccurs="0" ref="BETHA" />
+        <xs:element minOccurs="0" ref="KAPPA" />
+        <xs:element minOccurs="0" ref="KAPPA_0" />
+        <xs:element minOccurs="0" ref="KAPPA_F" />
+        <xs:element minOccurs="0" ref="TLim" />
+        <xs:element minOccurs="0" ref="DLim" />
+        <xs:element minOccurs="0" ref="Eeq" />
+        <xs:element minOccurs="0" ref="Kdl0" />
+        <xs:element minOccurs="0" ref="KdlF" />
+        <xs:element minOccurs="0" ref="Kdbl0" />
+        <xs:element minOccurs="0" ref="KdblCR" />
+        <xs:element minOccurs="0" ref="KdblU" />
+        <xs:element minOccurs="0" ref="Fdbl0" />
+        <xs:element minOccurs="0" ref="FdblCR" />
+        <xs:element minOccurs="0" ref="FdblU" />
+        <xs:element minOccurs="0" ref="H" />
+        <xs:element minOccurs="0" ref="FL" />
+        <xs:element minOccurs="0" ref="a" />
+        <xs:element minOccurs="0" ref="b" />
+        <xs:element minOccurs="0" ref="fy" />
+        <xs:element minOccurs="0" ref="k0" />
+        <xs:element minOccurs="0" ref="kf" />
+        <xs:element minOccurs="0" ref="n" />
+        <xs:element minOccurs="0" ref="n1" />
+        <xs:element minOccurs="0" ref="n2" />
+        <xs:element minOccurs="0" ref="cg" />
+        <xs:element minOccurs="0" ref="DamageThreshold" />
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ALPHA" type="xs:double" />
+  <xs:element name="BETHA" type="xs:double" />
+  <xs:element name="KAPPA" type="xs:double" />
+  <xs:element name="TLim" type="xs:double" />
+  <xs:element name="DLim" type="xs:double" />
+  <xs:element name="Eeq" type="xs:double" />
+  <xs:element name="Kdl0" type="xs:double" />
+  <xs:element name="KdlF" type="xs:double" />
+  <xs:element name="Kdbl0" type="xs:double" />
+  <xs:element name="KdblCR" type="xs:double" />
+  <xs:element name="KdblU" type="xs:double" />
+  <xs:element name="Fdbl0" type="xs:double" />
+  <xs:element name="FdblCR" type="xs:double" />
+  <xs:element name="FdblU" type="xs:double" />
+  <xs:element name="FL" type="xs:double" />
+  <xs:element name="DamageThreshold" type="xs:double" />
+  <xs:element name="n" type="xs:double" />
+  <xs:element name="n1" type="xs:double" />
+  <xs:element name="n2" type="xs:double" />
+  <xs:element name="cg" type="xs:double" />
+  <xs:element name="k0" type="xs:double" />
+  <xs:element name="kf" type="xs:double" />
+  <xs:element name="fy" type="xs:double" />
+
+  <xs:element name="BondLawX">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="BondLawVariables" />
+      </xs:all>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="BondLawY">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="BondLawVariables" />
+      </xs:all>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="BondLawZ">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="BondLawVariables" />
+      </xs:all>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="BondLawVariables">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="E" />
+        <xs:element minOccurs="0" ref="s1" />
+        <xs:element minOccurs="0" ref="s2" />
+        <xs:element minOccurs="0" ref="s3" />
+        <xs:element minOccurs="0" ref="Tau1" />
+        <xs:element minOccurs="0" ref="TauMax" />
+        <xs:element minOccurs="0" ref="TauF" />
+        <xs:element minOccurs="0" ref="BOND_ALPHA" />
+        <xs:element minOccurs="0" ref="BOND_ALPHA1" />
+        <xs:element minOccurs="0" ref="BOND_ALPHA2" />
+        <xs:element minOccurs="0" ref="BOND_ALPHA3" />
+        <xs:element minOccurs="0" ref="BOND_ALPHA4" />
+        <xs:element minOccurs="0" ref="fct" />
+        <xs:element minOccurs="0" ref="sf" />
+        <xs:element minOccurs="0" ref="ft" />
+        <xs:element minOccurs="0" ref="gf" />
+        <xs:element minOccurs="0" ref="fck" />
+        <xs:element minOccurs="0" ref="we" />
+        <xs:element minOccurs="0" ref="wc" />
+        <xs:element minOccurs="0" ref="d" />
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="E" type="xs:double" />
+  <xs:element name="s1" type="xs:double" />
+  <xs:element name="s2" type="xs:double" />
+  <xs:element name="s3" type="xs:double" />
+  <xs:element name="Tau1" type="xs:double" />
+  <xs:element name="TauMax" type="xs:double" />
+  <xs:element name="TauF" type="xs:double" />
+  <xs:element name="BOND_ALPHA" type="xs:double" />
+  <xs:element name="BOND_ALPHA1" type="xs:double" />
+  <xs:element name="BOND_ALPHA2" type="xs:double" />
+  <xs:element name="BOND_ALPHA3" type="xs:double" />
+  <xs:element name="BOND_ALPHA4" type="xs:double" />
+  <xs:element name="fct" type="xs:double" />
+  <xs:element name="sf" type="xs:double" />
+  <xs:element name="we" type="xs:double" />
+  <xs:element name="wc" type="xs:double" />
+  <xs:element name="d" type="xs:double" />
+  <xs:element name="ft" type="xs:double" />
+  <xs:element name="fck" type="xs:double" />
+
+  <xs:element name="MomentCurvatureList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="MomentCurvatureLaw" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MomentCurvatureLaw">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="MomentCurvatureVariables" />
+      </xs:all>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+      <xs:attribute name="direction" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MomentCurvatureVariables">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="mr" />
+        <xs:element minOccurs="0" ref="my" />
+        <xs:element minOccurs="0" ref="mu" />
+        <xs:element minOccurs="0" ref="cr" />
+        <xs:element minOccurs="0" ref="cy" />
+        <xs:element minOccurs="0" ref="cu" />
+        <xs:element minOccurs="0" ref="mrn" />
+        <xs:element minOccurs="0" ref="myn" />
+        <xs:element minOccurs="0" ref="mun" />
+        <xs:element minOccurs="0" ref="crn" />
+        <xs:element minOccurs="0" ref="cyn" />
+        <xs:element minOccurs="0" ref="cun" />
+        <xs:element minOccurs="0" ref="i2r" />
+        <xs:element minOccurs="0" ref="bb" />
+        <xs:element minOccurs="0" ref="mtr" />
+        <xs:element minOccurs="0" ref="mtcr" />
+        <xs:element minOccurs="0" ref="rtr" />
+        <xs:element minOccurs="0" ref="rtcr" />
+        <xs:element minOccurs="0" ref="PositiveMCPointsList" />
+        <xs:element minOccurs="0" ref="NegativeMCPointsList" />
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="mr" type="xs:double" />
+  <xs:element name="my" type="xs:double" />
+  <xs:element name="mu" type="xs:double" />
+  <xs:element name="cr" type="xs:double" />
+  <xs:element name="cy" type="xs:double" />
+  <xs:element name="cu" type="xs:double" />
+  <xs:element name="mrn" type="xs:double" />
+  <xs:element name="myn" type="xs:double" />
+  <xs:element name="mun" type="xs:double" />
+  <xs:element name="crn" type="xs:double" />
+  <xs:element name="cyn" type="xs:double" />
+  <xs:element name="cun" type="xs:double" />
+  <xs:element name="i2r" type="xs:double" />
+  <xs:element name="bb" type="xs:double" />
+  <xs:element name="mtr" type="xs:double" />
+  <xs:element name="mtcr" type="xs:double" />
+  <xs:element name="rtr" type="xs:double" />
+  <xs:element name="rtcr" type="xs:double" />
+
+  <xs:element name="PositiveMCPointsList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="MCPoint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="NegativeMCPointsList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="MCPoint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MCPoint" type="xs:string" />
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for DEGENERATION_LIST -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="DegenerationList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Degeneration" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Degeneration">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element minOccurs="0" ref="Area" />
+        <xs:element minOccurs="0" ref="Ix" />
+        <xs:element minOccurs="0" ref="Iy" />
+        <xs:element minOccurs="0" ref="Iz" />
+        <xs:element minOccurs="0" ref="Height" />
+        <xs:element minOccurs="0" ref="CSMaterial" />
+        <xs:element minOccurs="0" ref="Thickness" />
+        <xs:element minOccurs="0" ref="FormFactorY" />
+        <xs:element minOccurs="0" ref="FormFactorZ" />
+        <xs:element minOccurs="0" ref="numMaxMicroplanes" />
+        <xs:element minOccurs="0" ref="symmetric" />
+        <xs:element minOccurs="0" ref="radius" />
+        <xs:element minOccurs="0" ref="MPmaterial" />
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="DegenerationPoint" />
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="DegenerationGeometry" />
+        <xs:element minOccurs="0" ref="GeometricProperties" />
+        <xs:element minOccurs="0" ref="Position" />
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="MicroplaneDegenerationPoint" />
+      </xs:choice>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Area" type="xs:string" />
+  <xs:element name="Ix" type="xs:double" />
+  <xs:element name="Iy" type="xs:double" />
+  <xs:element name="Iz" type="xs:double" />
+  <xs:element name="Height" type="xs:double" />
+  <xs:element name="CSMaterial" type="xs:NCName" />
+  <xs:element name="Thickness" type="xs:double" />
+  <xs:element name="FormFactorY" type="xs:double" />
+  <xs:element name="FormFactorZ" type="xs:double" />
+  <xs:element name="numMaxMicroplanes" type="xs:int" />
+  <xs:element name="symmetric" type="xs:boolean" />
+  <xs:element name="radius" type="xs:double" />
+  <xs:element name="MPmaterial" type="xs:string" />
+
+  <xs:element name="MicroplaneDegenerationPoint">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="radius" />
+        <xs:element minOccurs="0" ref="Thickness" />
+        <xs:element ref="MicroplaneMaterial" />
+        <xs:element ref="MicroplaneContinuousPointModel" />
+        <xs:element ref="MicroplaneConstitutiveModel" />
+      </xs:all>
+      <xs:attribute name="numMicroplanes" type="xs:integer" />
+      <xs:attribute name="symmetric" />
+      <xs:attribute name="label" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MicroplaneMaterial" type="xs:NCName" />
+  <xs:element name="MicroplaneContinuousPointModel" type="xs:NCName" />
+  <xs:element name="MicroplaneConstitutiveModel" type="xs:NCName" />
+
+  <xs:element name="DegenerationPoint">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="PointMaterial" />
+        <xs:element minOccurs="0" ref="Angle" />
+        <xs:element minOccurs="0" ref="PointAnalysisModel" />
+        <xs:element minOccurs="0" ref="PointConstitutiveModel" />
+        <xs:element minOccurs="0" ref="Area" />
+      </xs:all>
+      <xs:attribute name="SectionCoord" />
+      <xs:attribute name="label" type="xs:integer" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="PointMaterial" type="xs:NCName" />
+  <xs:element name="PointAnalysisModel" type="xs:NCName" />
+  <xs:element name="PointConstitutiveModel" type="xs:NCName" />
+
+  <xs:element name="GeometricProperties">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="SectionArea" />
+        <xs:element minOccurs="0" ref="InertiaX" />
+        <xs:element minOccurs="0" ref="InertiaY" />
+        <xs:element minOccurs="0" ref="InertiaZ" />
+        <xs:element minOccurs="0" ref="SectionThickness" />
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="SectionArea" type="xs:double" />
+  <xs:element name="InertiaX" type="xs:double" />
+  <xs:element name="InertiaY" type="xs:double" />
+  <xs:element name="InertiaZ" type="xs:double" />
+  <xs:element name="SectionThickness" type="xs:double" />
+  <xs:element name="Position" type="xs:integer" />
+
+  <xs:element name="DegenerationGeometry">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element minOccurs="0" ref="DGVerticesList" />
+        <xs:element minOccurs="0" ref="MaterialPointGeometry" />
+      </xs:choice>
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="DGVerticesList">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element minOccurs="0" ref="DGVertex" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="DGVertex">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element minOccurs="0" ref="Coord" />
+      </xs:choice>
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MaterialPointGeometry">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element minOccurs="0" ref="Incidence" />
+      </xs:choice>
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for ENRICHMENT_LIST -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="EnrichmentList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Enrichment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Enrichment">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="X" />
+        <xs:element minOccurs="0" ref="Y" />
+        <xs:element minOccurs="0" ref="Z" />
+        <xs:element minOccurs="0" ref="InitialPoint" />
+        <xs:element minOccurs="0" ref="Lambda" />
+        <xs:element minOccurs="0" ref="Q" />
+        <xs:element minOccurs="0" ref="Theta" />
+        <xs:element minOccurs="0" ref="AssociateFrequency" />
+      </xs:all>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="X" type="xs:string" />
+  <xs:element name="Y" type="xs:string" />
+  <xs:element name="Z" type="xs:string" />
+  <xs:element name="InitialPoint" type="xs:string" />
+  <xs:element name="Lambda" type="xs:string" />
+  <xs:element name="Q" type="xs:string" />
+  <xs:element name="Theta" type="xs:string" />
+  <xs:element name="AssociateFrequency" type="xs:string" />
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for DISCONTINUITY_LIST -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="DiscontinuityList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Discontinuity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Discontinuity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="1" minOccurs="1" ref="FirstPoint" />
+        <xs:element maxOccurs="1" minOccurs="1" ref="SecondPoint" />
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="PathPoint" />
+      </xs:sequence>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="FirstPoint" type="xs:string" />
+  <xs:element name="SecondPoint" type="xs:string" />
+  <xs:element name="PathPoint" type="xs:string" />
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for IS_WITH_CRACK_PROPAGATION -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="IsWithCrackPropagation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="OnlyOneCrack" />
+      </xs:sequence>
+      <xs:attribute name="boolean" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="OnlyOneCrack" type="xs:string" />
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for NODE_LIST -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="NodeList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Node" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Node">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="Coord" />
+        <xs:element minOccurs="0" ref="NodeValues" />
+      </xs:all>
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Coord" type="xs:string" />
+
+  <xs:element name="NodeValues">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="Angle" />
+        <xs:element minOccurs="0" ref="DOFLabels" />
+        <xs:element minOccurs="0" ref="Restraints" />
+        <xs:element minOccurs="0" ref="PreDisplacements" />
+        <xs:element minOccurs="0" ref="PreVelocities" />
+        <xs:element minOccurs="0" ref="Mass" />
+        <xs:element minOccurs="0" ref="Damping" />
+        <xs:element minOccurs="0" ref="Stiffness" />
+        <xs:element minOccurs="0" ref="Displacements" />
+        <xs:element minOccurs="0" ref="Velocities" />
+        <xs:element minOccurs="0" ref="Accelerations" />
+        <xs:element minOccurs="0" ref="Reactions" />
+        <xs:element minOccurs="0" ref="PreTemperature" />
+        <xs:element minOccurs="0" ref="Temperature" />
+        <xs:element minOccurs="0" ref="ThermalStiffness" />
+        <xs:element minOccurs="0" ref="ThermalGradient" />
+        <xs:element minOccurs="0" ref="TemperatureFirstTimeDerivate" />
+        <xs:element minOccurs="0" ref="TemperatureSecondTimeDerivate" />
+        <xs:element minOccurs="0" ref="ThermalFlux" />
+        <xs:element minOccurs="0" ref="EnrichmentType" />
+        <xs:element minOccurs="0" ref="ScalingFactor" />
+        <xs:element minOccurs="0" ref="Strain" />
+        <xs:element minOccurs="0" ref="Stress" />
+        <xs:element minOccurs="0" ref="MasterDOFs" />
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Angle" type="xs:string" />
+  <xs:element name="DOFLabels" type="xs:string" />
+  <xs:element name="Restraints" type="xs:string" />
+  <xs:element name="PreDisplacements" type="xs:string" />
+  <xs:element name="PreVelocities" type="xs:string" />
+  <xs:element name="Mass" type="xs:string" />
+  <xs:element name="Damping" type="xs:string" />
+  <xs:element name="Stiffness" type="xs:string" />
+  <xs:element name="Displacements" type="xs:string" />
+  <xs:element name="Velocities" type="xs:string" />
+  <xs:element name="Accelerations" type="xs:string" />
+  <xs:element name="Reactions" type="xs:string" />
+  <xs:element name="PreTemperature" type="xs:string" />
+  <xs:element name="Temperature" type="xs:string" />
+  <xs:element name="ThermalStiffness" type="xs:string" />
+  <xs:element name="ThermalGradient" type="xs:string" />
+  <xs:element name="TemperatureFirstTimeDerivate" type="xs:string" />
+  <xs:element name="TemperatureSecondTimeDerivate" type="xs:string" />
+  <xs:element name="ThermalFlux" type="xs:string" />
+  <xs:element name="EnrichmentType" type="xs:string" />
+  <xs:element name="ScalingFactor" type="xs:string" />
+  <xs:element name="Strain" type="xs:string" />
+  <xs:element name="Stress" type="xs:string" />
+  <xs:element name="MasterDOFs" type="xs:string" />
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for ELEMENT_LIST -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="ElementList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="ShiftStandardIncidence" />
+        <xs:element maxOccurs="unbounded" ref="Element" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ShiftStandardIncidence" type="xs:string" />
+
+  <xs:element name="Element">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="Incidence" />
+        <xs:element ref="AnalysisModel" />
+        <xs:element minOccurs="0" ref="IntegrationOrder" />
+        <xs:element minOccurs="0" ref="ConstitutiveModel" />
+        <xs:element minOccurs="0" ref="ElementInternalValues" />
+        <xs:element minOccurs="0" ref="ElmDegenerations" />
+        <xs:element minOccurs="0" ref="ElmDegenerationList" />
+        <xs:element minOccurs="0" ref="ElementNodeValues" />
+        <xs:element minOccurs="0" ref="ValuesInterpolationFrom" />
+        <xs:element minOccurs="0" ref="GlobalElement" />
+        <xs:element minOccurs="0" ref="BoundaryInformation" />
+        <xs:element minOccurs="0" ref="ProblemDriver" />
+        <xs:element minOccurs="0" ref="LayerList" />
+        <xs:element minOccurs="0" ref="Angle" />
+        <xs:element minOccurs="0" ref="VoronoiVertices" />
+        <!-- BEM begin -->
+        <xs:element minOccurs="0" ref="TractionPrescribed" />
+        <!-- BEM end -->
+        <xs:element minOccurs="0" ref="ElementCrackPropagation" />
+      </xs:all>
+      <xs:attribute name="class" use="required" />
+      <xs:attribute name="label" type="xs:string" use="required" />
+      <xs:attribute name="info" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Incidence" type="xs:string" />
+
+  <xs:element name="VoronoiVertices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="VoronoiVertice" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="VoronoiVertice">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="VCoord" />
+      </xs:all>
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="VCoord" type="xs:string" />
+  <xs:element name="AnalysisModel" type="xs:NCName" />
+  <xs:element name="IntegrationOrder" type="xs:string" />
+  <xs:element name="ConstitutiveModel" type="xs:NCName" />
+  <xs:element name="ValuesInterpolationFrom" type="xs:string" />
+  <xs:element name="GlobalElement" type="xs:string" />
+  <xs:element name="BoundaryInformation" type="xs:string" />
+
+  <xs:element name="ElementInternalValues">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="IntVarLabels" />
+        <xs:element minOccurs="0" ref="DualIntVarLabels" />
+        <xs:element minOccurs="0" ref="ConstitutiveVariablesLabels" />
+        <xs:element minOccurs="0" ref="DamageVarLabels" />
+        <xs:element minOccurs="0" ref="EquivalentStrainLabels" />
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="IntVarLabels" type="xs:string" />
+  <xs:element name="DualIntVarLabels" type="xs:string" />
+  <xs:element name="ConstitutiveVariablesLabels" type="xs:string" />
+  <xs:element name="DamageVarLabels" type="xs:string" />
+  <xs:element name="EquivalentStrainLabels" type="xs:string" />
+  <xs:element name="ElmDegenerations" type="xs:string" />
+
+  <xs:element name="ElmDegenerationList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="ElmDegeneration" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ElmDegeneration">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="IPCoord" />
+        <xs:element ref="GeneralizedStrains" />
+        <xs:element ref="GeneralizedStresses" />
+        <xs:element ref="DiscontinuitySurface" />
+        <xs:element ref="Damage" />
+        <xs:element ref="EquivalentStrain" />
+        <xs:element ref="TemperatureGradient" />
+        <xs:element ref="ThermalFlux" />
+        <xs:element ref="MPIntVarLabels" />
+        <xs:element ref="MPDualIntVarLabels" />
+        <xs:element maxOccurs="unbounded" ref="SectionPoint" />
+      </xs:choice>
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="IPCoord" type="xs:string" />
+  <xs:element name="GeneralizedStrains" type="xs:string" />
+  <xs:element name="GeneralizedStresses" type="xs:string" />
+  <xs:element name="DiscontinuitySurface" type="xs:string" />
+  <xs:element name="Damage" type="xs:string" />
+  <xs:element name="EquivalentStrain" type="xs:string" />
+  <xs:element name="TemperatureGradient" type="xs:string" />
+  <xs:element name="MPIntVarLabels" type="xs:string" />
+  <xs:element name="MPDualIntVarLabels" type="xs:string" />
+  <xs:element name="SectionPoint">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="Strains" />
+        <xs:element minOccurs="0" ref="Stresses" />
+      </xs:all>
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Strains" type="xs:string" />
+  <xs:element name="Stresses" type="xs:string" />
+
+  <xs:element name="ElementNodeValues">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ElmNode" />
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Liberations" />
+        <xs:element minOccurs="0" maxOccurs="unbounded"
+          ref="ElmPreDisplacements" />
+        <xs:element minOccurs="0" maxOccurs="unbounded"
+          ref="ElmPreTemperature" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Begin layer_LIST -->
+  <xs:element name="LayerList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Layer" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!-- End layer_LIST -->
+
+  <!-- begin layer schema -->
+  <xs:element name="Layer">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="Shape" />
+        <xs:element ref="Incidence" />
+        <xs:element minOccurs="0" ref="IntegrationOrder" />
+        <xs:element ref="AnalysisModel" />
+        <xs:element ref="ConstitutiveModel" />
+        <xs:element ref="LayerDegenerations" />
+        <xs:element minOccurs="0" ref="BondAnalysisModel" />
+        <xs:element minOccurs="0" ref="BondConstitutiveModel" />
+        <xs:element minOccurs="0" ref="BondDegenerations" />
+        <xs:element minOccurs="0" ref="LayerInternalValues" />
+        <xs:element minOccurs="0" ref="ElementLayerNodeValues" />
+        <xs:element minOccurs="0" ref="ElmLayerDegenerationList" />
+      </xs:all>
+      <xs:attribute name="class" type="xs:string" use="required" />
+      <xs:attribute name="label" type="xs:string" use="required" />
+      <xs:attribute name="info" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <!-- End layer schema -->
+
+  <xs:element name="Shape" type="xs:string" />
+  <xs:element name="LayerDegenerations" type="xs:string" />
+  <xs:element name="BondAnalysisModel" type="xs:NCName" />
+  <xs:element name="BondConstitutiveModel" type="xs:NCName" />
+  <xs:element name="BondDegenerations" type="xs:string" />
+
+  <xs:element name="LayerInternalValues">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="IntVarLabels" />
+        <xs:element minOccurs="0" ref="DualIntVarLabels" />
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ElementLayerNodeValues">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ElmLayerNode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ElmLayerNode">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="NodalStrains" />
+        <xs:element minOccurs="0" ref="NodalStress" />
+      </xs:all>
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="NodalStrains" type="xs:string" />
+  <xs:element name="NodalStress" type="xs:string" />
+
+  <xs:element name="ElmLayerDegenerationList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="layerDegeneration" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="layerDegeneration">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="IPCoord" />
+        <xs:element ref="LayerStrains" />
+        <xs:element ref="LayerStresses" />
+      </xs:choice>
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="LayerStrains" type="xs:string" />
+  <xs:element name="LayerStresses" type="xs:string" />
+
+  <!--Bem Model begin -->
+  <xs:element name="TractionPrescribed">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ElmBemNode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <!--Bem Model end -->
+
+  <xs:element name="ElmNode">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="NodalGeneralizedStrains" />
+        <xs:element minOccurs="0" ref="NodalGeneralizedStresses" />
+        <xs:element minOccurs="0" ref="NodalConstitutiveVariables" />
+        <xs:element minOccurs="0" ref="NodalDamage" />
+        <xs:element minOccurs="0" ref="NodalEquivalentStrain" />
+        <xs:element minOccurs="0" ref="NodalTemperatureGradient" />
+        <xs:element minOccurs="0" ref="NodalThermalFlux" />
+      </xs:all>
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="NodalGeneralizedStrains" type="xs:string" />
+  <xs:element name="NodalGeneralizedStresses" type="xs:string" />
+  <xs:element name="NodalDamage" type="xs:string" />
+  <xs:element name="NodalConstitutiveVariables" type="xs:string" />
+  <xs:element name="NodalEquivalentStrain" type="xs:string" />
+  <xs:element name="NodalTemperatureGradient" type="xs:string" />
+  <xs:element name="NodalThermalFlux" type="xs:string" />
+
+  <xs:element name="Liberations">
+    <xs:complexType mixed="true">
+      <xs:attribute name="node" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <!-- BEM Model begin -->
+  <xs:element name="ElmBemNode">
+    <xs:complexType mixed="true">
+      <xs:attribute name="BemNode" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <!-- BEM Model end -->
+
+  <xs:element name="ElmPreDisplacements">
+    <xs:complexType mixed="true">
+      <xs:attribute name="node" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ElmPreTemperature">
+    <xs:complexType mixed="true">
+      <xs:attribute name="node" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ElementCrackPropagation">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" ref="CrackFirstPoint" />
+        <xs:element minOccurs="1" ref="CrackSecondPoint" />
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="CrackFirstPoint" type="xs:string" />
+  <xs:element name="CrackSecondPoint" type="xs:string" />
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for GEOMETRY_DESCRIPTION -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="GeometryDescription" type="xs:NCName" />
+
+  <!-- XML Schema for GEOMETRY_ENTITY_LIST -->
+  <xs:element name="GeometryEntityList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="GeometryEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="GeometryEntity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="2" ref="Vertex" />
+        <xs:element maxOccurs="1" ref="PiecewiseLinear" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Vertex">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Coords" />
+      </xs:sequence>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Coords" type="xs:string" />
+
+  <xs:element name="PiecewiseLinear">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Vertices" />
+        <xs:element ref="GeoDescription" />
+      </xs:sequence>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Vertices" type="xs:string" />
+  <xs:element name="GeoDescription" type="xs:NCName" />
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for ENRICHMENT_FUNCTION_LIST -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="EnrichmentFunctionList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="EnrichmentFunction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="EnrichmentFunction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="EnrichedDofLabels" />
+      </xs:sequence>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="EnrichedDofLabels" type="xs:string" />
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for ENRICHMENT_ITEM_LIST -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="EnrichmentItemList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="EnrichmentItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="EnrichmentItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="2" ref="CrackTip" />
+        <xs:element maxOccurs="1" ref="CrackInterior" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="CrackTip">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="GEVertex" />
+        <xs:element minOccurs="0" ref="CTEnrichFns" />
+      </xs:sequence>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="GEVertex" type="xs:string" />
+  <xs:element name="CTEnrichFns" type="xs:string" />
+
+  <xs:element name="CrackInterior">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="GELinear" />
+        <xs:element ref="Tips" />
+        <xs:element minOccurs="0" ref="InteractedElm" />
+        <xs:element minOccurs="0" ref="CIEnrichFns" />
+        <xs:element minOccurs="0" ref="ConstModel" />
+      </xs:sequence>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="GELinear" type="xs:string" />
+  <xs:element name="Tips" type="xs:string" />
+  <xs:element name="InteractedElm" type="xs:string" />
+  <xs:element name="CIEnrichFns" type="xs:string" />
+
+  <xs:element name="ConstModel">
+    <xs:complexType>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for CRACK_GROWTH_DIRECTION_LAW -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="CrackGrowthDirectionLaw">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="DeclineWeightedFunc" />
+      </xs:sequence>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="DeclineWeightedFunc" type="xs:double" />
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for CRACK_GROWTH_INCREMENT_LAW -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="CrackGrowthIncrementLaw">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="Delta" />
+      </xs:sequence>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Delta" type="xs:double" />
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for CRACK_PROPAGATION -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="CrackPropagation">
+    <xs:complexType>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for NON_LINEAR_CONSTITUTIVE_MODEL -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="NonLinearConstitutiveModel">
+    <xs:complexType>
+      <xs:attribute name="class" type="xs:NCName" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for LOADING_LIST -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="LoadingList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="Loading" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Loading">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="NodeLoad" />
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="InitialEquivalentNodalLoad" />
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="PointLoad" />
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="LineLoad" />
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="AreaLoad" />
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="VolumeLoad" />
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="LineInitialInternalVariableLoad" />
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="AreaInitialInternalVariableLoad" />
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="VolumeInitialInternalVariableLoad" />
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="LineTemperatureVariationLoad" />
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="AreaTemperatureVariationLoad" />
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="VolumeTemperatureVariationLoad" />
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="ThermalLoad" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="NodeLoad">
+    <xs:complexType mixed="true">
+      <xs:attribute name="node" type="xs:double" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="InitialEquivalentNodalLoad">
+    <xs:complexType mixed="true">
+      <xs:attribute name="elm" type="xs:string" use="required" />
+      <xs:attribute name="node" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="PointLoad">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="Point" />
+        <xs:element ref="Load" />
+      </xs:all>
+      <xs:attribute name="elm" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Point" type="xs:string" />
+  <xs:element name="Load" type="xs:string" />
+
+  <xs:element name="LineLoad">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="PointLoad" />
+      </xs:sequence>
+      <xs:attribute name="elm" type="xs:string" use="required" />
+      <xs:attribute name="intOrder" type="xs:integer" use="optional" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="AreaLoad">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="PointLoad" />
+      </xs:sequence>
+      <xs:attribute name="elm" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="VolumeLoad">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="PointLoad" />
+      </xs:sequence>
+      <xs:attribute name="elm" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="LineInitialInternalVariableLoad">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="PointLoad" />
+      </xs:sequence>
+      <xs:attribute name="elm" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="AreaInitialInternalVariableLoad">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="PointLoad" />
+      </xs:sequence>
+      <xs:attribute name="elm" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="VolumeInitialInternalVariableLoad">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="PointLoad" />
+      </xs:sequence>
+      <xs:attribute name="elm" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="LineTemperatureVariationLoad">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="PointLoad" />
+      </xs:sequence>
+      <xs:attribute name="elm" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="AreaTemperatureVariationLoad">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="PointLoad" />
+      </xs:sequence>
+      <xs:attribute name="elm" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="VolumeTemperatureVariationLoad">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="PointLoad" />
+      </xs:sequence>
+      <xs:attribute name="elm" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ThermalLoad">
+    <xs:complexType mixed="true">
+      <xs:attribute name="elm" type="xs:double" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for DOMAIN_LIMITS_COORDS -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="DomainLimitsCoords">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="3" maxOccurs="unbounded" ref="Points" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Points" type="xs:string" />
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for RESTRAINTS_LIST -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="RestraintsList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="GeneralRestraints" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="GeneralRestraints">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="NodeRestraint" />
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="InitialEquivalentNodalRestraint" />
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="PointRestraint" />
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="LineRestraint" />
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="AreaRestraint" />
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="VolumeRestraint" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="NodeRestraint">
+    <xs:complexType mixed="true">
+      <xs:attribute name="node" type="xs:double" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="InitialEquivalentNodalRestraint">
+    <xs:complexType mixed="true">
+      <xs:attribute name="elm" type="xs:string" use="required" />
+      <xs:attribute name="node" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="PointRestraint">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="PointRest" />
+        <xs:element ref="Restraint" />
+        <xs:element maxOccurs="1" minOccurs="0" ref="Nature" />
+      </xs:all>
+      <xs:attribute name="elm" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="PointRest" type="xs:string" />
+  <xs:element name="Restraint" type="xs:string" />
+  <xs:element name="Nature" type="xs:string" />
+
+  <xs:element name="LineRestraint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="PointRestraint" />
+      </xs:sequence>
+      <xs:attribute name="elm" type="xs:string" use="required" />
+      <xs:attribute name="intOrder" type="xs:integer" use="optional" />
+      <xs:attribute name="cell" type="xs:string" use="optional" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="AreaRestraint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="PointRestraint" />
+      </xs:sequence>
+      <xs:attribute name="elm" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="VolumeRestraint">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="PointRestraint" />
+      </xs:sequence>
+      <xs:attribute name="elm" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for SCALAR_FUNCTION -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="ScalarFunctions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="ScalarFunction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="ScalarFunction">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element minOccurs="0" ref="Amplitude" />
+        <xs:element minOccurs="0" ref="PhaseAngle" />
+        <xs:element minOccurs="0" ref="Period" />
+        <xs:element minOccurs="0" ref="Frequency" />
+        <xs:element minOccurs="0" ref="EndAmplitude" />
+        <xs:element minOccurs="0" ref="Duration" />
+        <xs:element minOccurs="0" ref="FunctionStart" />
+        <xs:element minOccurs="0" ref="FunctionEnd" />
+      </xs:choice>
+      <xs:attribute name="type" type="xs:string" use="required" />
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Amplitude" type="xs:double" />
+  <xs:element name="PhaseAngle" type="xs:double" />
+  <xs:element name="Period" type="xs:double" />
+  <xs:element name="Frequency" type="xs:double" />
+  <xs:element name="EndAmplitude" type="xs:double" />
+  <xs:element name="Duration" type="xs:double" />
+  <xs:element name="FunctionStart" type="xs:double" />
+  <xs:element name="FunctionEnd" type="xs:double" />
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for LOAD_COMBINATION -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="LoadCombinations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="LoadCombination" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="LoadCombination">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="LoadCase" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="LoadCase">
+    <xs:complexType>
+      <xs:attribute name="loading" type="xs:string" use="required" />
+      <xs:attribute name="inc" type="xs:boolean" use="required" />
+      <xs:attribute name="scalarFunction" type="xs:string"
+        use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for RESTRAINT_COMBINATION -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="RestraintCombinations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="RestraintCombination" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="RestraintCombination">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="RestraintCase" />
+      </xs:sequence>
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="RestraintCase">
+    <xs:complexType>
+      <xs:attribute name="restraints" type="xs:string" use="required" />
+      <xs:attribute name="inc" type="xs:boolean" use="required" />
+      <xs:attribute name="scalarFunction" type="xs:string"
+        use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- Meshfree begin -->
+  <!-- XML Schema for Mesh_Free_NODE_LIST -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="MfreeNodeList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="MfreeNode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MfreeNode">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" ref="MfreeNodeValues" />
+      </xs:all>
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="MfreeNodeValues">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="1" maxOccurs="1" ref="InfluenceDomain" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="ActiveNode" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="Cloud" />
+        <!--<xs:element minOccurs="1" maxOccurs="1" ref="NodeWeightFunction"/> -->
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="InfluenceDomain" type="xs:string" />
+  <xs:element name="ActiveNode" type="xs:string" />
+  <xs:element name="Cloud" type="xs:string" />
+
+  <!--<xs:element name="NodeWeightFunction" type="xs:string"/> -->
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for WEIGHT_FUNCTION_LIST -->
+  <!-- ************************************************************************************************************************** -->
+  <!-- <xs:element name="WeightFunctionList"> <xs:complexType> <xs:sequence> 
+    <xs:element maxOccurs="unbounded" ref="WeightFunction"/> </xs:sequence> </xs:complexType> 
+    </xs:element> <xs:element name="WeightFunction"> <xs:attribute name="label" 
+    type="xs:string" use="required"/> </xs:element> -->
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for Influence_Domain_LIST -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="InfluenceDomainList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="Geometry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Geometry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="AlphaR" />
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="BetaR" />
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="Raio" />
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="Sides" />
+        <xs:element maxOccurs="unbounded" minOccurs="0"
+          ref="WeightFunction" />
+      </xs:sequence>
+      <xs:attribute name="class" type="xs:string" use="required" />
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Raio" type="xs:string" />
+  <xs:element name="Sides" type="xs:string" />
+  <xs:element name="WeightFunction" type="xs:string" />
+  <xs:element name="AlphaR" type="xs:double" />
+  <xs:element name="BetaR" type="xs:double" />
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- XML Schema for Mesh Free -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="MeshFree">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="Method" />
+        <xs:element ref="Domain" />
+        <xs:element ref="Degree" />
+        <xs:element minOccurs="0" ref="AlphaS" />
+        <xs:element minOccurs="0" ref="Lagrange" />
+        <xs:element minOccurs="0" ref="Shifted" />
+      </xs:all>
+      <!--<xs:attribute name="type" type="xs:string" use="required"/> -->
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Method" type="xs:string" />
+  <xs:element name="Domain" type="xs:integer" />
+  <xs:element name="Degree" type="xs:integer" />
+  <xs:element name="AlphaS" type="xs:double" />
+  <xs:element name="Lagrange" type="xs:boolean" />
+  <xs:element name="Shifted" type="xs:boolean" />
+  <!-- Meshfree end -->
+
+  <!-- ************************************************************************************************************************** -->
+  <!-- Bem Model begin -->
+  <!-- XML Schema for Bem_Model_NODE_LIST -->
+  <!-- ************************************************************************************************************************** -->
+  <xs:element name="BemNodeList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="BemNode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="BemNode">
+    <xs:complexType>
+      <xs:all>
+        <xs:element ref="Coord" />
+        <xs:element minOccurs="0" ref="BemNodeValues" />
+      </xs:all>
+      <xs:attribute name="label" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="BemNodeValues">
+    <xs:complexType>
+      <xs:all>
+        <xs:element minOccurs="0" ref="Internal" />
+        <xs:element minOccurs="0" ref="Angle" />
+        <xs:element minOccurs="0" ref="DOFLabels" />
+        <xs:element minOccurs="0" ref="Restraints" />
+        <xs:element minOccurs="0" ref="PreDisplacements" />
+        <xs:element minOccurs="0" ref="PreVelocities" />
+        <xs:element minOccurs="0" ref="Mass" />
+        <xs:element minOccurs="0" ref="Damping" />
+        <xs:element minOccurs="0" ref="Stiffness" />
+        <xs:element minOccurs="0" ref="Displacements" />
+        <xs:element minOccurs="0" ref="Velocities" />
+        <xs:element minOccurs="0" ref="Accelerations" />
+        <xs:element minOccurs="0" ref="Reactions" />
+        <xs:element minOccurs="0" ref="PreTemperature" />
+        <xs:element minOccurs="0" ref="Temperature" />
+        <xs:element minOccurs="0" ref="ThermalStiffness" />
+        <xs:element minOccurs="0" ref="ThermalGradient" />
+        <xs:element minOccurs="0" ref="TemperatureFirstTimeDerivate" />
+        <xs:element minOccurs="0" ref="TemperatureSecondTimeDerivate" />
+        <xs:element minOccurs="0" ref="ThermalFlux" />
+        <xs:element minOccurs="0" ref="EnrichmentType" />
+        <xs:element minOccurs="0" ref="ScalingFactor" />
+        <xs:element minOccurs="0" ref="Displ" />
+        <xs:element minOccurs="0" ref="Tract" />
+        <xs:element minOccurs="0" ref="StrainStressLabels" />
+        <xs:element minOccurs="0" ref="Strain" />
+        <xs:element minOccurs="0" ref="Stress" />
+        <xs:element minOccurs="0" ref="PrStrainStressLabels" />
+        <xs:element minOccurs="0" ref="PrStrain" />
+        <xs:element minOccurs="0" ref="PrStress" />
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="Displ" type="xs:string" />
+  <xs:element name="Tract" type="xs:string" />
+  <xs:element name="StrainStressLabels" type="xs:string" />
+  <xs:element name="PrStrainStressLabels" type="xs:string" />
+  <xs:element name="PrStrain" type="xs:string" />
+  <xs:element name="PrStress" type="xs:string" />
+
+  <xs:element name="Internal" type="xs:boolean" />
+  <!-- Bem Model end -->
+
+</xs:schema>

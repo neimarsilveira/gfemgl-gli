@@ -1,0 +1,255 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<Insane xmlns="http://www.dees.ufmg.br" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.dees.ufmg.br insane.xsd">
+  <Solution class="SteadyState">
+    <SolverType>4</SolverType>
+  </Solution>
+  <Model class="FemModel">
+    <ProblemDriver>Parametric</ProblemDriver>
+    <GlobalAnalysisModel>PlaneStress</GlobalAnalysisModel>
+    <MaterialList>
+      <Material class="LinearElasticIsotropic" label="Material">
+        <Elasticity>2.0E11</Elasticity>
+        <Poisson>0.3</Poisson>
+      </Material>
+    </MaterialList>
+    <DegenerationList>
+      <Degeneration class="PrescribedDegeneration" label="Section">
+        <CSMaterial>Material</CSMaterial>
+        <Thickness>1.0000000</Thickness>
+      </Degeneration>
+    </DegenerationList>
+    <NodeList>
+      <Node label="1">
+        <Coord>0.000000 0.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>true true</Restraints>
+          <MasterDOFs>false false</MasterDOFs>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+        </NodeValues>
+      </Node>
+      <Node label="101">
+        <Coord>1.000000 0.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <MasterDOFs>false false</MasterDOFs>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+        </NodeValues>
+      </Node>
+      <Node label="104">
+        <Coord>1.000000 1.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <MasterDOFs>false false</MasterDOFs>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+        </NodeValues>
+      </Node>
+      <Node label="4">
+        <Coord>0.000000 1.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>true true</Restraints>
+          <MasterDOFs>false false</MasterDOFs>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+        </NodeValues>
+      </Node>
+      <Node label="5">
+        <Coord>2.000000 0.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <MasterDOFs>false false</MasterDOFs>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+        </NodeValues>
+      </Node>
+      <Node label="6">
+        <Coord>2.000000 1.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <MasterDOFs>false false</MasterDOFs>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+        </NodeValues>
+      </Node>
+      <Node label="109">
+        <Coord>3.000000 0.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <MasterDOFs>false false</MasterDOFs>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+        </NodeValues>
+      </Node>
+      <Node label="110">
+        <Coord>3.000000 1.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <MasterDOFs>false false</MasterDOFs>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+        </NodeValues>
+      </Node>
+      <Node label="9">
+        <Coord>4.000000 0.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <MasterDOFs>false false</MasterDOFs>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+        </NodeValues>
+      </Node>
+      <Node label="10">
+        <Coord>4.000000 1.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <MasterDOFs>false false</MasterDOFs>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+        </NodeValues>
+      </Node>
+      <Node label="112">
+        <Coord>1.000000 2.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <MasterDOFs>false false</MasterDOFs>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+        </NodeValues>
+      </Node>
+      <Node label="12">
+        <Coord>0.000000 2.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>true true</Restraints>
+          <MasterDOFs>false false</MasterDOFs>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+        </NodeValues>
+      </Node>
+      <Node label="13">
+        <Coord>2.000000 2.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <MasterDOFs>false false</MasterDOFs>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+        </NodeValues>
+      </Node>
+      <Node label="115">
+        <Coord>3.000000 2.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <MasterDOFs>false false</MasterDOFs>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+        </NodeValues>
+      </Node>
+      <Node label="15">
+        <Coord>4.000000 2.000000 0.000000</Coord>
+        <NodeValues>
+          <DOFLabels>Dx Dy</DOFLabels>
+          <Restraints>false false</Restraints>
+          <MasterDOFs>false false</MasterDOFs>
+          <Stiffness>0.00000E00 0.00000E00</Stiffness>
+          <PreDisplacements>0.00000E00 0.00000E00</PreDisplacements>
+        </NodeValues>
+      </Node>
+    </NodeList>
+    <ElementList>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="1">
+        <Incidence>1 101 104 4</Incidence>
+        <AnalysisModel>PlaneStress</AnalysisModel>
+        <IntegrationOrder>2 2 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="2">
+        <Incidence>101 5 6 104</Incidence>
+        <AnalysisModel>PlaneStress</AnalysisModel>
+        <IntegrationOrder>2 2 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="3">
+        <Incidence>5 109 110 6</Incidence>
+        <AnalysisModel>PlaneStress</AnalysisModel>
+        <IntegrationOrder>2 2 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="4">
+        <Incidence>109 9 10 110</Incidence>
+        <AnalysisModel>PlaneStress</AnalysisModel>
+        <IntegrationOrder>2 2 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="5">
+        <Incidence>104 112 12 4</Incidence>
+        <AnalysisModel>PlaneStress</AnalysisModel>
+        <IntegrationOrder>2 2 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="6">
+        <Incidence>6 13 112 104</Incidence>
+        <AnalysisModel>PlaneStress</AnalysisModel>
+        <IntegrationOrder>2 2 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="7">
+        <Incidence>110 115 13 6</Incidence>
+        <AnalysisModel>PlaneStress</AnalysisModel>
+        <IntegrationOrder>2 2 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+      <Element class="ParametricElement.Quadrilateral.Q4" label="8">
+        <Incidence>10 15 115 110</Incidence>
+        <AnalysisModel>PlaneStress</AnalysisModel>
+        <IntegrationOrder>2 2 0</IntegrationOrder>
+        <ConstitutiveModel>LinearElasticConstModel</ConstitutiveModel>
+        <ElmDegenerations>Section</ElmDegenerations>
+      </Element>
+    </ElementList>
+  </Model>
+  <LoadingList>
+    <Loading label="IGL">
+      <NodeLoad node="9">5.000000E06 0.000000E00</NodeLoad>
+      <NodeLoad node="10">1.000000E07 0.000000E00</NodeLoad>
+      <NodeLoad node="15">5.000000E06 0.000000E00</NodeLoad>
+      <NodeLoad node="101">0.0 0.0</NodeLoad>
+      <NodeLoad node="104">0.0 0.0</NodeLoad>
+      <NodeLoad node="112">0.0 0.0</NodeLoad>
+      <NodeLoad node="109">0.0 0.0</NodeLoad>
+      <NodeLoad node="110">0.0 0.0</NodeLoad>
+      <NodeLoad node="115">0.0 0.0</NodeLoad>
+    </Loading>
+  </LoadingList>
+  <ScalarFunctions>
+    <ScalarFunction type="ConstantFunction" label="Function-1.0">
+      <Amplitude>1.000E00</Amplitude>
+    </ScalarFunction>
+  </ScalarFunctions>
+  <LoadCombinations>
+    <LoadCombination label="LoadCombination1">
+      <LoadCase loading="IGL" inc="false" scalarFunction="Function-1.0"/>
+    </LoadCombination>
+  </LoadCombinations>
+</Insane>
